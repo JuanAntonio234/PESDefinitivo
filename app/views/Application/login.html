@@ -1,0 +1,67 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Concesionarios Lonsu 33</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@{'/public/stylesheets/main.css'}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/parallax.css'}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/register.css'}">
+
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+
+
+    <!-- Link CSS -->
+
+</head>
+<body>
+<header>
+    <nav>
+        <img src="public/images/" class="logo" alt="">
+        <div class="menu">
+            <a href="@{Application.index()}">Inicio</a>
+            <a href="@{Coches.list()}">Coches</a>
+            <a href="@{Application.register()}">Login</a>
+            <a href="#contacto">Contacto</a>
+
+        </div>
+
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </nav>
+</header>
+<div id="login">
+    
+
+    #{form @login(), id:'formLogin'}
+        <p class="field">
+            <label>Login Name:</label>
+            <input type="text" name="username" size="19" value="${flash.username}" />
+        </p>
+        <p class="field">
+            <label>Password:</label>
+            <input type="password" name="password" size="19"/>
+        </p>    
+        <p class="buttons">
+            <input type="submit" value="Account login" />
+            <a href="@{Application.register()}" class="boton-registrarse">Registrarse</a>
+
+        </p> 
+    #{/form}
+
+ 
+</div>
+

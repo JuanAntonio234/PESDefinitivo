@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Concesionarios Lonsu 33</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@{'/public/stylesheets/main.css'}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/parallax.css'}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/register.css'}">
+
+</head>
+
+
+<!--
+<body>
+    <header class="header">
+        <div class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span class="company-name">Concesionario Lonsu</span>
+                </div>
+                <div class="navbar-links">
+                    <a href="@{Application.index()}">Inicio</a>
+                    <a href="@{Coches.list()}">Coches</a>
+                    <a href="@{Application.Login()}">Login</a>
+                    <a href="#contacto">Contacto</a>                  
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="fondoPrincipal">
+        <h1>Reserva coche</h1>
+        <div class="verVehiculos">
+            <a href="@{Coches.list()}" class="btn">Ver vehículos</a>
+        </div>
+    </div>
+
+
+<div id="contacto" class="contenido-adicional">
+    <h2>Contacto</h2>
+    <p>Correo electrónico: info@concesionariolonsu33.com</p>
+    <p>Teléfono: +1234567890</p>
+</div>
+
+</body>
+
+</html>
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+
+
+    <!-- Link CSS -->
+
+</head>
+<body>
+<header>
+    <nav>
+        <img src="public/images/foto logo definitiva.png" class="logo" alt="">
+        <div class="menu">
+            <a href="@{Application.index()}">Inicio</a>
+            <a href="@{Coches.list()}">Coches</a>
+            <a href="@{Application.register()}">Login</a>
+            <a href="#}">Contacto</a>
+
+        </div>
+
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </nav>
+</header>
+
+<div class="hero">
+
+    <div class="text">
+        <h4>¿Qué esperas  </h4>
+        <h1>Para <br> <span>Divertirte?</span></h1>
+
+        <a href="@{Coches.list()}" class="btn">Reserva ahora</a>
+    </div>
+</div>
+
+<script>
+    let heroBg = document.querySelector('.hero');
+
+    setInterval(() => {
+        heroBg.style.backgroundImage = "url(public/images/bg-light.jpg)"
+
+        setTimeout(() => {
+            heroBg.style.backgroundImage = "url(public/images/bg.jpg)"
+        }, 1000);
+    }, 2800);
+</script>
+</body>
+</html>
+
