@@ -44,7 +44,7 @@ public class Application extends Controller {
         if (conductorExiste != null) {
             response.status = 409; // Conflict
         }else {
-            Usuario newConductor = new Usuario(nameUser, edad, password,0).save();
+            new Usuario(nameUser, edad, password,0).save();
             session.put("usuario",nameUser);
             response.status = 201; // Created
         }
@@ -121,7 +121,8 @@ public class Application extends Controller {
             renderJSON("{\"error\":\"No hay ningun coche con este nombre.\"}");
         }
     }
-    public static void datosConductor(){
+    
+    public static void datosConductor(String nameDriver){
         String name="Manuel";
         //String name=session.get("user");
         Logger.info("Nombre de usuario recuperado de la sesión: " + session.get("user"));
