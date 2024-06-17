@@ -27,7 +27,7 @@ public class Application extends Controller {
             renderText("El nombre de usuario ya está en uso. Por favor, elige otro nombre de usuario.");
         } else {
             if (password.equals(confirmPassword)) {
-                Usuario newConductor = new Usuario(nameUser,edad, password).save();
+                Usuario newConductor = new Usuario(nameUser,edad, password,0).save();
                 session.put("usuario", nameUser);
                 index();
             } else {
@@ -44,7 +44,8 @@ public class Application extends Controller {
         if (conductorExiste != null) {
             response.status = 409; // Conflict
         }else {
-            Usuario newConductor = new Usuario(nameUser, edad, password).save();
+            Usuario newConductor = new Usuario(nameUser, edad, password,0).save();
+            session.put("usuario",nameUser);
             response.status = 201; // Created
         }
     }
@@ -54,6 +55,9 @@ public class Application extends Controller {
         Logger.info("Password: " + password);
         Usuario usuario = Usuario.find("byNameAndPassword", nameUser, password).first();
         if (usuario != null) {
+            session.put("user",nameUser);
+            Logger.info("Nombre de usuario almacenado en la sesión: " + session.get("user"));
+
             response.status=200;
         } else {
             response.status=401;
@@ -69,7 +73,6 @@ public class Application extends Controller {
         }
     }
 
-
     public static void Login(){
         render();
     }
@@ -79,7 +82,6 @@ public class Application extends Controller {
         renderText("Sesión cerrada exitosamente");
         index();
     }
-
 
     /*
     public static void mostrarCoches(){
@@ -111,16 +113,24 @@ public class Application extends Controller {
         if (coche != null) {
             renderJSON(coche);
         }else {
-            renderText("No hay ningun coche con este nombre.");
+            renderJSON("No hay ningun coche con este nombre.");
         }
     }
-    public static void obtenerDatosConductor(String conductor,String password){
-        Usuario usuario=Usuario.find("byNameAndPassword",conductor,password).first();
-        if(usuario!= null){
-            renderText("Nombre: "+conductor+" edad: "+ usuario.edad+"número de coches: "+ usuario.numcoches);
+    public static void datosConductor(){
+        String name=session.get("user");
+        Logger.info("Nombre de usuario recuperado de la sesión: " + session.get("user"));
+
+        Usuario usuario=Usuario.find("byName",name).first();
+        Logger.info("Nombre de usuario: " + name);
+
+        if(usuario==null){
+            renderJSON("Usuario no encontrado");
         }else{
-            renderText("No hay ningún usuario asociado a ese nombre.");
+            UsuarioDTO usuarioDTO=new UsuarioDTO(usuario.name, usuario.edad, usuario.numcoches);
+            Logger.info("Nombre de usuario: " + usuario.name);
+            renderJSON(usuarioDTO);
         }
+
     }
 
 

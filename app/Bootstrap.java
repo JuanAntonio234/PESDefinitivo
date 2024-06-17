@@ -12,10 +12,10 @@ public class Bootstrap extends Job {
         // Load default data if the database is empty
         if (Usuario.count() == 0 && Coche.count() == 0 && Reserva.count() == 0) {
             //Inicialitzar la base de dades
-            Usuario u1 = new Usuario("Manuel", "2f345").save();
-            Usuario u2 = new Usuario("María", "10f24").save();
-            Usuario u3 = new Usuario("Ana", "998s5").save();
-            Usuario u4 = new Usuario("Alex", "2s756").save();
+            Usuario u1 = new Usuario("Manuel",55, "2f345",1).save();
+            Usuario u2 = new Usuario("María",76, "10f24",0).save();
+            Usuario u3 = new Usuario("Ana", 32,"998s5",0).save();
+            Usuario u4 = new Usuario("Alex",20, "2s756",0).save();
     
             Coche c1 = new Coche("Peugeot", "47984lKZ", "familiar").save();
             Coche c2 = new Coche("Citroen", "4691GJB", "SUV").save();
