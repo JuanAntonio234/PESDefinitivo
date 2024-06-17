@@ -12,7 +12,6 @@ import models.*;
 
 public class Application extends Controller {
 
-
     public static void index() {
         render();
     }
@@ -35,6 +34,7 @@ public class Application extends Controller {
             }
         }
     }
+
     public static void registerAndroid(String nameUser,int edad, String password){
         Logger.info("Datos recibidos del cliente Android:");
         Logger.info("Nombre de usuario: " + nameUser);
@@ -49,6 +49,7 @@ public class Application extends Controller {
             response.status = 201; // Created
         }
     }
+
     public static void loginAndroid(String nameUser, String password) {
         Logger.info("Datos recibidos del cliente Android:");
         Logger.info("Nombre de usuario: " + nameUser);
@@ -63,6 +64,7 @@ public class Application extends Controller {
             response.status=401;
         }
     }
+
     public static void login(String nameUser, String password) {
         Usuario usuario = Usuario.find("byNameAndPassword", nameUser, password).first();
         if (usuario != null) {
@@ -104,39 +106,38 @@ public class Application extends Controller {
                 renderText("El conductor"+userName+" no tiene ningún coche registrado.");
             }
         } else {
-            renderText("No se encontró al conductor "+userName+" en la base de datos.");
+            renderJSON("{\"error\":\"No hay ningun usuario con este nombre.\"}");
         }
     }
 
-    public static void obtenerDatosCoche(String carName){
-        Coche coche=Coche.find("byName",carName).first();
+    public static void datosCoche(String carName){
+        Coche coche=Coche.find("byMarca",carName).first();
+        Logger.info("Marca del coche buscado: " + carName);
+
         if (coche != null) {
-            renderJSON(coche);
+            CocheDTO cocheDTO = new CocheDTO(coche.marca, coche.matricula, coche.tipo);
+            renderJSON(cocheDTO);
         }else {
-            renderJSON("No hay ningun coche con este nombre.");
+            renderJSON("{\"error\":\"No hay ningun coche con este nombre.\"}");
         }
     }
     public static void datosConductor(){
-        String name=session.get("user");
+        String name="Manuel";
+        //String name=session.get("user");
         Logger.info("Nombre de usuario recuperado de la sesión: " + session.get("user"));
 
         Usuario usuario=Usuario.find("byName",name).first();
-        Logger.info("Nombre de usuario: " + name);
-
         if(usuario==null){
-            renderJSON("Usuario no encontrado");
+            renderJSON("{\"error\":\"No hay ningun usuario con este nombre.\"}");
         }else{
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            //cambiar posteriormente, enviar la  lista de coches también////////////////////////////////////////
             UsuarioDTO usuarioDTO=new UsuarioDTO(usuario.name, usuario.edad, usuario.numcoches);
             Logger.info("Nombre de usuario: " + usuario.name);
             renderJSON(usuarioDTO);
         }
-
     }
-
-
     //hacer una consulta para obtener todos los coches
 
-
-    
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 }

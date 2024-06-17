@@ -25,6 +25,7 @@ public class Bootstrap extends Job {
             Reserva r1 = new Reserva("04/05/2024", "05/05/2024", u1, c1).save();
             
             u1.anadirCoche(c1);
+            u1.anadirCoche(c2);
             u1.save();
         }
     }

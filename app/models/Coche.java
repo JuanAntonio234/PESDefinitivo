@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Coche extends Model {
     public String marca;
-    public String matriculacion;
+    public String matricula;
     public String tipo;
 
     @ManyToOne
@@ -20,7 +20,7 @@ public class Coche extends Model {
 
     public Coche(String mar, String mat, String tip) {
         marca = mar;
-        matriculacion = mat;
+        matricula = mat;
         tipo = tip;
     }
 }

@@ -17,6 +17,7 @@ GET     /public/                                staticDir:public
 POST    /loginAndroid                           Application.loginAndroid
 POST    /registerAndroid                        Application.registerAndroid
 GET     /datosConductor                         Application.datosConductor
+GET     /datosCoche                             Application.datosCoche
 GET     /login                                  Application.login
 GET     /register                               Application.register
 GET     /coches                                 Coches.index

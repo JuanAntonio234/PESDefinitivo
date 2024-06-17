@@ -11,7 +11,7 @@ import java.util.List;
 public class Usuario extends Model {
     public String name;
     public int edad;
-    public int numcoches;
+    public int numcoches = 0;
     public String password;
     @OneToMany(mappedBy = "usuario")
     public List<Coche> listaCoches = new ArrayList<>();
