@@ -18,7 +18,7 @@ POST    /loginAndroid                           Application.loginAndroid
 POST    /registerAndroid                        Application.registerAndroid
 GET     /datosConductor                         Application.datosConductor
 GET     /datosCoche                             Application.datosCoche
-GET     /cochesConductor                        Application.obtenerCochesDelConductor
+GET     /cochesConductor                        Application.cochesConductor
 GET     /login                                  Application.login
 GET     /register                               Application.register
 GET     /coches                                 Coches.index

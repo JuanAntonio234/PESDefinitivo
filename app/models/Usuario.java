@@ -14,13 +14,15 @@ public class Usuario extends Model {
     public int numcoches = 0;
     public String password;
     @OneToMany(mappedBy = "usuario")
-    public List<Coche> listaCoches = new ArrayList<>();
+    public List<Coche> listaCoches;
 
     public Usuario(String name, int edad, String password, int numCoches) {
         this.name = name;
         this.edad = edad;
         this.password=password;
         this.numcoches=numCoches;
+        this.listaCoches = new ArrayList<>();
+
     }
     public Usuario(String name,String password){
         this.name=name;
