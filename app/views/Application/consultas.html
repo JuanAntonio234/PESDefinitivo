@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionarios Lonsu33</title>
+
+    <link rel="stylesheet" href="@{'/public/stylesheets/main.css'}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/register.css'}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/parallax.css'}">
+    <link rel="stylesheet" href="@{'/public/stylesheets/coches.css'}">
+</head>
+<body>
+<header>
+    <nav>
+        <img src="@{'public/images/'}" class="logo" alt="">
+        <div class="menu">
+            <a href="@{Application.index()}">Inicio</a>
+            <a href="@{Coches.list()}">Coches</a>
+            <a href="@{Application.register()}">Login</a>
+            <a href="@{Application.consultas()}">Consultas</a>
+        </div>
+
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </nav>
+</header>
+<div id="contenedor" class="contenedor">
+    <input type="text" id="marcaInput" placeholder="Introduce la marca del coche" style="color: black;">
+    <button style="color:black" onclick="obtenerDatosCoche()">Obtener Datos del Coche</button>
+
+    <div id="informacion">
+        <h3>Información del Coche:</h3>
+        <p id="marca"></p>
+        <p id="modelo"></p>
+        <p id="matricula"></p>
+        <p id="tipo"></p>
+    </div>
+</div>
+<div id="contenedor" class="contenedor">
+    <input type="text" id="userInput" placeholder="Introduce el nombre del conductor" style="color: black;">
+    <button onclick="obtenerDatosConductor()">Obtener Datos del Conductor</button>
+
+    <div id="infoConductor">
+        <h3>Información del Conductor:</h3>
+        <p id="nombre"></p>
+        <p id="edad"></p>
+        <p id="numCoches"></p>
+    </div>
+</div>
+
+<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}"></script>
+
+<script type="text/javascript">
+    function obtenerDatosCoche() {
+        var marca = document.getElementById('marcaInput').value.trim();
+        if (marca !== '') {
+            var url = '/datosCoche?carName=' + marca;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'json',
+                success: function(data) {
+                    if (data.error) {
+                        alert(data.error); // Muestra el mensaje de error del servidor
+                    } else {
+                        document.getElementById('marca').innerText = 'Marca: ' + data.marca;
+                        document.getElementById('matricula').innerText = 'Matrícula: ' + data.matricula;
+                        document.getElementById('tipo').innerText = 'Tipo: ' + data.tipo;
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = JSON.parse(xhr.responseText);
+                    alert(errorMessage.error); // Muestra el mensaje de error del servidor
+                }
+            });
+        } else {
+            alert('Por favor, introduce la marca del coche');
+        }
+    }
+
+    function obtenerDatosConductor() {
+        var nameDriver = document.getElementById('userInput').value.trim();
+        if (nameDriver !== '') {
+            var url = '/datosConductor?nameDriver=' + nameDriver;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'json',
+                success: function(data) {
+                    if (data.error) {
+                        alert(data.error); // Muestra el mensaje de error del servidor
+                    } else {
+                        document.getElementById('nombre').innerText = 'Nombre: ' + data.name;
+                        document.getElementById('edad').innerText = 'Edad: ' + data.edad;
+                        document.getElementById('numCoches').innerText = 'Número de coches: ' + data.numcoches;
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = JSON.parse(xhr.responseText);
+                    alert(errorMessage.error); // Muestra el mensaje de error del servidor
+                }
+            });
+        } else {
+            alert('Por favor, introduce el nombre del conductor');
+        }
+    }
+</script>
+
+
+</body>
+</html>
+

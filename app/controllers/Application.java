@@ -15,7 +15,13 @@ public class Application extends Controller {
     public static void index() {
         render();
     }
-   
+
+    public static void consultas(){
+        render();
+    }
+    public static void datosCoche(){
+        render();
+    }
     public static void register(){
         render();
     }
@@ -118,6 +124,7 @@ public class Application extends Controller {
     }*/
 
     public static void datosCoche(String carName){
+
         Coche coche=Coche.find("byMarca",carName).first();
         Logger.info("Marca del coche buscado: " + carName);
 

@@ -14,12 +14,15 @@ GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+#android
 POST    /loginAndroid                           Application.loginAndroid
 POST    /registerAndroid                        Application.registerAndroid
 GET     /datosConductor                         Application.datosConductor
 GET     /datosCoche                             Application.datosCoche
 GET     /cochesConductor                        Application.cochesConductor
+
 GET     /login                                  Application.login
 GET     /register                               Application.register
 GET     /coches                                 Coches.index
 GET     /coches/list                            Coches.list
+GET     /consultas                              Application.consultas
