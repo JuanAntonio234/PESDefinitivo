@@ -6,8 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2be64c81-d80c-4604-b115-f75a5a8a8883" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/ProyectoDefinitivo.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoDefinitivo.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoDefinitivoV2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/Application/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Application/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Application_consultas.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Application_consultas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Application/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Application/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Application/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Coches/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Coches/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/Coches/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/h2/play.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/h2/play.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Application_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Application_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Application_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Application_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Coches_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/_app_views_Coches_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/bytecode/DEV/controllers.Application" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

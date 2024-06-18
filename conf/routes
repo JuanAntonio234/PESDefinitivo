@@ -17,12 +17,16 @@ GET     /public/                                staticDir:public
 #android
 POST    /loginAndroid                           Application.loginAndroid
 POST    /registerAndroid                        Application.registerAndroid
+
+#Rutas para la interfaz web
+POST     /login                                  Application.login
+POST     /registerUser                           Application.registerUser
+GET      /register                               Application.register
+
+# Otras rutas específicas
 GET     /datosConductor                         Application.datosConductor
 GET     /datosCoche                             Application.datosCoche
 GET     /cochesConductor                        Application.cochesConductor
-
-GET     /login                                  Application.login
-GET     /register                               Application.register
 GET     /coches                                 Coches.index
 GET     /coches/list                            Coches.list
 GET     /consultas                              Application.consultas
